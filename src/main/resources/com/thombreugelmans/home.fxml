@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<AnchorPane style="-fx-background-color: #b1b1b1;">
+    <GridPane   AnchorPane.topAnchor="30" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                alignment="TOP_CENTER" hgap="2" vgap="2">
+        <rowConstraints>
+            <RowConstraints fillHeight="true" percentHeight="70" />
+            <RowConstraints fillHeight="true" percentHeight="30" />
+        </rowConstraints>
+        <columnConstraints>
+            <ColumnConstraints fillWidth="true" percentWidth="30" />
+            <ColumnConstraints fillWidth="true" percentWidth="70" />
+        </columnConstraints>
+
+        <children>
+            <HBox GridPane.rowIndex="0" fillHeight="true">
+                <!-- This HBox will act as a spacing container for the input -->
+                <VBox fillWidth="true">
+                    <!-- This VBox will contain the list of possible preference topics and how many preferences an entity can specify -->
+                </VBox>
+                <VBox fillWidth="true">
+                    <!-- This VBox will contain the selection space of entities and allows us to specify their preferences -->
+                </VBox>
+            </HBox>
+            <HBox GridPane.rowIndex="1" GridPane.columnSpan="2" fillHeight="true">
+                <!-- This HBox will act as a container for the output -->
+            </HBox>
+        </children>
+    </GridPane>
+</AnchorPane>
