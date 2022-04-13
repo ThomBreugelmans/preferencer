@@ -9,7 +9,7 @@ public class Profile {
 
     private int id;
     private String name;
-    private List<Pair<Integer, String>> preferences;
+    private List<Integer> preferences;
 
     public Profile(String name, int id) {
         this.name = name;
@@ -29,11 +29,11 @@ public class Profile {
         this.name = name;
     }
 
-    public void setPreferences(List<Pair<Integer, String>> preferences) {
+    public void setPreferences(List<Integer> preferences) {
         this.preferences = preferences;
     }
 
-    public List<Pair<Integer, String>> getPreferences() {
+    public List<Integer> getPreferences() {
         return preferences;
     }
 }
