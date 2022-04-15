@@ -7,8 +7,13 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
-<AnchorPane style="-fx-background-color: #b1b1b1;">
-    <GridPane   AnchorPane.topAnchor="30" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+<AnchorPane style="-fx-background-color: #b1b1b1;" xmlns:fx="http://javafx.com/fxml" fx:controller="com.thombreugelmans.Controller">
+    <HBox fillHeight="true" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          prefHeight="30" alignment="CENTER_LEFT" style="-fx-background-color: #343b73;-fx-padding: 2 10 2 10">
+        <!-- This is for the controls of the application -->
+        <Button onMouseClicked="#startComputingPreferences">Run</Button>
+    </HBox>
+    <GridPane   AnchorPane.topAnchor="32" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
                 alignment="TOP_CENTER" hgap="2" vgap="2">
         <rowConstraints>
             <RowConstraints fillHeight="true" percentHeight="70" />
@@ -20,18 +25,57 @@
         </columnConstraints>
 
         <children>
-            <HBox GridPane.rowIndex="0" fillHeight="true">
-                <!-- This HBox will act as a spacing container for the input -->
-                <VBox fillWidth="true">
-                    <!-- This VBox will contain the list of possible preference topics and how many preferences an entity can specify -->
-                </VBox>
-                <VBox fillWidth="true">
-                    <!-- This VBox will contain the selection space of entities and allows us to specify their preferences -->
-                </VBox>
-            </HBox>
-            <HBox GridPane.rowIndex="1" GridPane.columnSpan="2" fillHeight="true">
+            <!-- This HBox will act as a spacing container for the input -->
+            <GridPane GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-background-color: white;">
+                <rowConstraints>
+                    <RowConstraints fillHeight="true" />
+                    <RowConstraints fillHeight="true" />
+                </rowConstraints>
+                <columnConstraints>
+                    <ColumnConstraints fillWidth="true" percentWidth="100" />
+                </columnConstraints>
+
+                <children>
+                    <HBox GridPane.vgrow="NEVER" GridPane.rowIndex="0">
+                        <Text>Profiles:</Text>
+                        <Button onMouseClicked="#removeProfile">-</Button>
+                        <Button onMouseClicked="#addProfile">+</Button>
+                    </HBox>
+                    <ScrollPane fitToWidth="true" GridPane.vgrow="ALWAYS" GridPane.rowIndex="1">
+                        <ListView fx:id="profiles" >
+                        </ListView>
+                    </ScrollPane>
+                </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="0" GridPane.columnIndex="1" style="-fx-background-color: white;">
+                <rowConstraints>
+                    <RowConstraints fillHeight="true" />
+                    <RowConstraints fillHeight="true" />
+                </rowConstraints>
+                <columnConstraints>
+                    <ColumnConstraints fillWidth="true" percentWidth="100" />
+                </columnConstraints>
+
+                <children>
+                    <HBox GridPane.vgrow="NEVER" GridPane.rowIndex="0">
+                        <Text>Topics:</Text>
+                        <TextField fx:id="maxPreferences"/>
+                        <Button onMouseClicked="#removeTopic">-</Button>
+                        <Button onMouseClicked="#addTopic">+</Button>
+                    </HBox>
+                    <ScrollPane fitToWidth="true" GridPane.vgrow="ALWAYS" GridPane.rowIndex="1">
+                        <ListView fx:id="topics" >
+                        </ListView>
+                    </ScrollPane>
+                </children>
+            </GridPane>
+            <VBox GridPane.rowIndex="1" GridPane.columnSpan="2" fillWidth="true" style="-fx-background-color: white;">
                 <!-- This HBox will act as a container for the output -->
-            </HBox>
+                <Text>Result:</Text>
+                <Text fx:id="score"></Text>
+                <GridPane vgap="10" hgap="10" fx:id="result">
+                </GridPane>
+            </VBox>
         </children>
     </GridPane>
 </AnchorPane>
